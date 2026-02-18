@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Visitor {
+  id                    Int      @id @default(autoincrement())
+  name                  String
+  contact_no            String?
+  email                 String?
+  purpose               String?
+  contact_person_email  String?
+  status                Boolean  @default(false)
+  created_at            DateTime @default(now())
+
+  @@map("visitors")
+}
