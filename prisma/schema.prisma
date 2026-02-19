@@ -7,14 +7,15 @@ datasource db {
 }
 
 model Visitor {
-  id                    Int      @id @default(autoincrement())
-  name                  String
-  contact_no            String?
-  email                 String?
-  purpose               String?
-  contact_person_email  String?
-  status                Boolean  @default(false)
-  created_at            DateTime @default(now())
+  id                   Int      @id @default(autoincrement())
+  name                 String
+  contact_no           String?
+  email                String?
+  purpose              String?
+  contact_person_email String?
+  status               Boolean  @default(false)
+  token                String   @unique // Add this field(now())
+  created_at           DateTime @default(now())
 
   @@map("visitors")
 }

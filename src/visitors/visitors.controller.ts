@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 import { VisitorsService } from './visitors.service';
 
 @Controller('visitors')
@@ -13,5 +13,10 @@ export class VisitorsController {
     @Get()
     findAll() {
         return this.visitorsService.getAllVisitors();
+    }
+
+    @Get('approve')
+    approve(@Query('token') token: string) {
+        return this.visitorsService.approveVisitor(token);
     }
 }
